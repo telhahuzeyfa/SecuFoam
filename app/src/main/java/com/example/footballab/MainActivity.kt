@@ -2,6 +2,7 @@ package com.example.footballab
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -13,7 +14,13 @@ import com.example.footballab.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var loginButton: Button
+    private lateinit var signUp: Button
+    private lateinit var login: Button
+    private lateinit var password: TextView
+    private lateinit var et_name: TextView
+    private lateinit var et_email: TextView
+    private lateinit var et_password: TextView
+    private lateinit var register: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
