@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".CreateAccountActivity">
 
     <TextView
         android:id="@+id/tv_logo"
@@ -26,7 +27,7 @@
         android:layout_marginBottom="50dp"/>
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/user_fullname"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/your_name"
@@ -38,7 +39,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/user_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/e_mail"
@@ -50,7 +51,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/user_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/password"
@@ -62,7 +63,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_repassword"
+        android:id="@+id/user_repeatPassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/re_type_password"
@@ -78,15 +79,15 @@
         android:layout_weight="1">
 
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:text="@string/register"/>
+            android:text="@string/register"
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:layout_width="30dp"
@@ -103,6 +104,16 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="178dp"
+            android:layout_marginBottom="195dp" />
     </RelativeLayout>
 
 </LinearLayout>

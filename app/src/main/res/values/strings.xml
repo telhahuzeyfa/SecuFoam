@@ -8,11 +8,18 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="e_mail">Email</string>
-    <string name="tag">Let\'s join us and \nBuild your relationship with others</string>
+    <string name="tag">Let\'s join us and \nconnect with the world of Football</string>
     <string name="swipe_right_for_login">Swipe Right for Login</string>
     <string name="register">Register</string>
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
     <string name="username">Username</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Create an account</string>
+    <string name="login_failure_doesnt_exist">We can\'t find an account with this email. Try signing up for an account!</string>
+    <string name="login_failure_wrong_credentials">Please check your username &amp; password and try again!</string>
+    <string name="login_failure_generic">Failed to login: %1$s</string>
+    <string name="signup_failure_weak_password">Your password does not meet minimum requirements! Must be at least 6 characters long.</string>
+    <string name="signup_failure_already_exists">An account already exists for this email!</string>
+    <string name="signup_failure_invalid_format">You must supply a valid formatted email!</string>
+    <string name="signup_failure_generic">Failed to register: %1$s</string>
 </resources>

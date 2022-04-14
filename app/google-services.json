@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "502966823345",
+    "project_id": "footballab-4ecf1",
+    "storage_bucket": "footballab-4ecf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502966823345:android:d70da2972549c5fb3bb590",
+        "android_client_info": {
+          "package_name": "com.example.footballab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502966823345-lvmc26lkeeh9r2ah5v4pvaffte996cg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD__j-h3GFyeNY_VqegFVTkW-weQKLqMkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502966823345-lvmc26lkeeh9r2ah5v4pvaffte996cg5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
