@@ -22,4 +22,13 @@
     <string name="signup_failure_already_exists">An account already exists for this email!</string>
     <string name="signup_failure_invalid_format">You must supply a valid formatted email!</string>
     <string name="signup_failure_generic">Failed to register: %1$s</string>
+    <string name="competition">Competition</string>
+    <string name="searchHint">Search</string>
+    <string name="searchHome">Search</string>
+    <string name="newsByLocationHome">Football News By Location</string>
+    <string name="viewMapButtonHome">View Map</string>
+    <string name="standings">Standings</string>
+    <string name="sourceTitle">Source</string>
+    <string name="viewTopHeadlines">VIEW TOP HEADLINES</string>
+    <string name="news_api_key">wleHC9avXM3kZYEj</string>
 </resources>

@@ -22,10 +22,8 @@ class CreateAccountActivity: AppCompatActivity() {
     private lateinit var progressBar2: ProgressBar
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseAnalytics: FirebaseAnalytics
-    private lateinit var userFullname: EditText
     private lateinit var userEmail: EditText
     private lateinit var userPassword: EditText
-    private lateinit var userRepeatPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,19 +40,15 @@ class CreateAccountActivity: AppCompatActivity() {
 
         progressBar2 = findViewById(R.id.progressBar2)
         registerButton = findViewById(R.id.registerButton)
-        userFullname = findViewById(R.id.user_fullname)
         userEmail = findViewById(R.id.user_email)
         userPassword = findViewById(R.id.user_password)
-        userRepeatPassword = findViewById(R.id.user_repeatPassword)
 
         //Disable register button at first glance
         registerButton.visibility = View.INVISIBLE
-
+//
         registerButton.setOnClickListener {
-            val inputtedFullName: String = userFullname.text.toString()
             val inputtedEmail: String = userEmail.text.toString()
             val inputtedPassword: String = userPassword.text.toString()
-            val inputtedPasswordOnRepeat: String = userRepeatPassword.text.toString()
 
 //            progressBar2.visibility = View.VISIBLE
             //If the two passwords inputted end up not matching then throw error message
@@ -64,63 +58,63 @@ class CreateAccountActivity: AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     progressBar2.visibility = View.INVISIBLE
                     if (task.isSuccessful) {
-//                        firebaseAnalytics.logEvent("Register_clicked", null)
-//                        val user = firebaseAuth.currentUser
-//                        Toast.makeText(
-//                            this,
-//                            "Successfully registered as ${user!!.email}",
-//                            Toast.LENGTH_LONG
-//                        ).show()
+                        firebaseAnalytics.logEvent("Register_clicked", null)
+                        val user = firebaseAuth.currentUser
+                        Toast.makeText(
+                            this,
+                            "Successfully registered as ${user!!.email}",
+                            Toast.LENGTH_LONG
+                        ).show()
                         Toast.makeText(this, "Successfully registered as $inputtedEmail", Toast.LENGTH_LONG).show()
                     }else{
                         val exception = task.exception
                         Toast.makeText(this, "Failed to register $exception", Toast.LENGTH_LONG).show()
-//                        if (exception != null){
-//                            Firebase.crashlytics.recordException(exception)
-//                        }
+                        if (exception != null){
+                            Firebase.crashlytics.recordException(exception)
+                        }
 
-//                        when (exception) {
-//                            is FirebaseAuthWeakPasswordException -> {
-//                                val bundle = Bundle()
-//                                bundle.putString("reason", "weak_password")
-//                                firebaseAnalytics.logEvent("signup_failed", bundle)
-//                                Toast.makeText(
-//                                    this,
-//                                    R.string.signup_failure_weak_password,
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                            }
-//                            is FirebaseAuthUserCollisionException -> {
-//                                val bundle = Bundle()
-//                                bundle.putString("reason", "existing_account")
-//                                firebaseAnalytics.logEvent("signup_failed", bundle)
-//                                Toast.makeText(
-//                                    this,
-//                                    R.string.signup_failure_already_exists,
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                            }
-//                            is FirebaseAuthInvalidCredentialsException -> {
-//                                val bundle = Bundle()
-//                                bundle.putString("reason", "invalid_credentials")
-//                                firebaseAnalytics.logEvent("signup_failed", bundle)
-//                                Toast.makeText(
-//                                    this,
-//                                    R.string.signup_failure_invalid_format,
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                            }
-//                            else -> {
-//                                val bundle = Bundle()
-//                                bundle.putString("reason", "generic")
-//                                firebaseAnalytics.logEvent("signup_failed", bundle)
-//                                Toast.makeText(
-//                                    this,
-//                                    getString(R.string.signup_failure_generic, exception),
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                            }
-//                        }
+                        when (exception) {
+                            is FirebaseAuthWeakPasswordException -> {
+                                val bundle = Bundle()
+                                bundle.putString("reason", "weak_password")
+                                firebaseAnalytics.logEvent("signup_failed", bundle)
+                                Toast.makeText(
+                                    this,
+                                    R.string.signup_failure_weak_password,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                            is FirebaseAuthUserCollisionException -> {
+                                val bundle = Bundle()
+                                bundle.putString("reason", "existing_account")
+                                firebaseAnalytics.logEvent("signup_failed", bundle)
+                                Toast.makeText(
+                                    this,
+                                    R.string.signup_failure_already_exists,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                            is FirebaseAuthInvalidCredentialsException -> {
+                                val bundle = Bundle()
+                                bundle.putString("reason", "invalid_credentials")
+                                firebaseAnalytics.logEvent("signup_failed", bundle)
+                                Toast.makeText(
+                                    this,
+                                    R.string.signup_failure_invalid_format,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                            else -> {
+                                val bundle = Bundle()
+                                bundle.putString("reason", "generic")
+                                firebaseAnalytics.logEvent("signup_failed", bundle)
+                                Toast.makeText(
+                                    this,
+                                    getString(R.string.signup_failure_generic, exception),
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
                     }
                 }
         }
