@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FootbalLab">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDAmA68A1_L95xN33aY4o-p2LFArq60ptc" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".LoginDirection"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -19,6 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".StandingTable">
+        </activity>
+
     </application>
 
 </manifest>

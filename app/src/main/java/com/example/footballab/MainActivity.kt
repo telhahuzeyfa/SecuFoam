@@ -2,6 +2,8 @@ package com.example.footballab
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,17 +12,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.footballab.databinding.ActivityMainBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var signUp: Button
-    private lateinit var login: Button
-    private lateinit var password: TextView
-    private lateinit var et_name: TextView
-    private lateinit var et_email: TextView
-    private lateinit var et_password: TextView
-    private lateinit var register: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
