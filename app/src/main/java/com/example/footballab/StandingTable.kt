@@ -3,6 +3,10 @@ package com.example.footballab
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import android.widget.Spinner
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +25,7 @@ class StandingTable : AppCompatActivity(){
 
     var selectedSources = arrayListOf<String>()
 
-    val newsAPIKey = getString(R.string.news_api_key)
+    val standingApi = getString(R.string.news_api_key)
 
     companion object{
         var listOfCompetitions = arrayOf("1", "2", "3", "4", "5")
@@ -60,7 +64,7 @@ class StandingTable : AppCompatActivity(){
 
                 doAsync {
                     val source: List<Standings> =
-                        apiManager.retrieveStandings(newsAPIKey, listOfCompetitions[selectedCompetition])
+                        apiManager.retrieveStandings(standingApi, listOfCompetitions[selectedCompetition])
                     standingAdapter = StandingAdapter(source)
                     runOnUiThread {
                         selectedSources = standingAdapter.getCheckList()

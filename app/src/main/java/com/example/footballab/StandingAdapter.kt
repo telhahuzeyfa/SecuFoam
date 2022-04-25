@@ -35,16 +35,6 @@ class StandingAdapter(private val standings: List<Standings>):
         val currentSource = standings[position]
         holder.teamName.text = currentSource.teamName
         holder.teamRank.text = currentSource.teamRank
-        //Read the card view search with the link
-//        holder.topHeadlineCardView.setOnClickListener {
-//            var intUrl: Intent = Intent (Intent.ACTION_VIEW, Uri.parse(currentSource.iconUrl))
-//            it.context.startActivity(intUrl)
-//        }
-//        Picasso.get().setIndicatorsEnabled(true)
-//        Picasso
-//            .get()
-//            .load(currentSource.iconUrl)
-//            .into(holder.topHeadlineThumbnail)
     }
     override fun getItemCount(): Int {
         return standings.size

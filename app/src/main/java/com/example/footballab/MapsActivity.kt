@@ -16,7 +16,6 @@
 //import androidx.cardview.widget.CardView
 //import androidx.recyclerview.widget.LinearLayoutManager
 //import androidx.recyclerview.widget.RecyclerView
-//
 //import com.google.android.gms.maps.CameraUpdateFactory
 //import com.google.android.gms.maps.GoogleMap
 //import com.google.android.gms.maps.OnMapReadyCallback
@@ -66,8 +65,8 @@
 //        var loadCoordinates = LatLng(latitude, longitude)
 //
 //        mMap = googleMap
-//        val newsAPIKey = getString(R.string.news_api_key)
-//        var news: List<News> = listOf()
+//        val newsAPIKey = getString(R.string.standingApi)
+//        var news: List<Standings> = listOf()
 //
 //        doAsync {
 //            val geocode = Geocoder(this@MapsActivity)
@@ -87,8 +86,8 @@
 //                localMapResultsScreen.text = "Cannot Load Current Address"
 //            } else {
 //                localMapResultsScreen.text = "Results for ${results.first().adminArea}"
-//                val temp = NewsManager()
-//                news = temp.fetchMapNews(newsAPIKey, results)
+//                val temp = APIManager()
+//                news = temp.retrieveStandings(newsAPIKey, results)
 //            }
 //            val newsAdapter = NewsAdapter(news)
 //            runOnUiThread {
