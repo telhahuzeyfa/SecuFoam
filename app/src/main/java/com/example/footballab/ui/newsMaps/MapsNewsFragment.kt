@@ -1,17 +1,15 @@
-package com.example.footballab.ui.dashboard
+package com.example.footballab.ui.newsMaps
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.footballab.databinding.FragmentDashboardBinding
+import com.example.footballab.databinding.FragmentNewsMapsBinding
 
-class DashboardFragment : Fragment() {
-
-    private var _binding: FragmentDashboardBinding? = null
+class MapsNewsFragment : Fragment(){
+    private var _binding: FragmentNewsMapsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,16 +20,12 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val homeViewModel =
+            ViewModelProvider(this).get(MapsNewsViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentNewsMapsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textDashboard
-//        dashboardViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return root
     }
 

@@ -1,13 +1,13 @@
-//package com.example.footballab
+package com.example.footballab
 //
 //import android.os.Bundle
 //import android.view.View
 //import android.widget.*
-//import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 //import androidx.recyclerview.widget.LinearLayoutManager
 //import androidx.recyclerview.widget.RecyclerView
 //
-//class LiveFixtures : AppCompatActivity(){
+class LiveFixtures : AppCompatActivity(){
 //    lateinit var spinnerCategory: Spinner
 //    lateinit var fixtureRecycler: RecyclerView
 //    lateinit var sourceAdapter: SourceAdapter
@@ -85,4 +85,4 @@
 //            }
 //        }
 //    }
-//}
+}

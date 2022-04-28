@@ -42,7 +42,7 @@
 //        localNewsRecycler = findViewById(R.id.localNewsRecycler)
 //        localNews.visibility = View.GONE
 //        localMapResultsScreen = findViewById(R.id.maps_titleMapResultsScreen)
-//        this.title = "News by location"
+//        this.title = "FootbalLab"
 //
 //
 //        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -87,9 +87,9 @@
 //            } else {
 //                localMapResultsScreen.text = "Results for ${results.first().adminArea}"
 //                val temp = APIManager()
-//                news = temp.retrieveStandings(newsAPIKey, results)
+//                news = temp.fetchMapNews(newsAPIKey, results)
 //            }
-//            val newsAdapter = NewsAdapter(news)
+//            val newsAdapter = (news)
 //            runOnUiThread {
 //                sharedPrefs.edit().putString("SAVED_LATITUDE", loadCoordinates.latitude.toString())
 //                    .apply()

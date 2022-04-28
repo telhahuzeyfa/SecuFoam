@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">FootbalLab</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_upcomingFixtures">Upcoming Fixtures</string>
+    <string name="title_newsMaps">News Map</string>
+    <string name="title_setting">Setting</string>
     <string name="swipe_left_for_register">Swipe Left for Register</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
@@ -30,5 +30,6 @@
     <string name="standings">Standings</string>
     <string name="sourceTitle">Source</string>
     <string name="viewTopHeadlines">VIEW TOP HEADLINES</string>
+    <string name="maps_titleMapResultsScreen">Local News</string>
     <string name="standingApi">wleHC9avXM3kZYEj</string>
 </resources>

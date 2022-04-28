@@ -25,7 +25,7 @@ class StandingTable : AppCompatActivity(){
 
     var selectedSources = arrayListOf<String>()
 
-    val standingApi = getString(R.string.news_api_key)
+    val standingApi = getString(R.string.standingApi)
 
     companion object{
         var listOfCompetitions = arrayOf("1", "2", "3", "4", "5")

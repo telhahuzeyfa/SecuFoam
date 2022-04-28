@@ -1,13 +1,13 @@
-package com.example.footballab.ui.home
+package com.example.footballab.ui.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class SettingViewModel: ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Fixture Fragment"
+        value = "This is Setting Fragment"
     }
     val text: LiveData<String> = _text
 }

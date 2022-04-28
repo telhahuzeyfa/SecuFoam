@@ -12,10 +12,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDAmA68A1_L95xN33aY4o-p2LFArq60ptc" />
-        <activity
-            android:name=".MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
+<!--        <activity-->
+<!--            android:name=".MapsActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_maps" />-->
         <activity
             android:name=".LoginDirection"
             android:exported="true"
@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".StandingTable">
         </activity>
+<!--        <activity android:name=".MapsActivity">-->
+<!--        </activity>-->
 
     </application>
 

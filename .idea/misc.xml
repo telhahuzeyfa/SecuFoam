@@ -15,9 +15,12 @@
         <entry key="app/src/main/res/layout/create_account_activity.xml" value="0.38437561035156254" />
         <entry key="app/src/main/res/layout/following_page_activity.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/fragment_fixtures.xml" value="0.2653985507246377" />
         <entry key="app/src/main/res/layout/fragment_games_soccer.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.259927797833935" />
+        <entry key="app/src/main/res/layout/fragment_news_maps.xml" value="0.2653985507246377" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.2653985507246377" />
         <entry key="app/src/main/res/layout/games_page_activity.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/home_page_activity.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/row_fixtures.xml" value="0.23324275362318841" />
