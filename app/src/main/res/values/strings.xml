@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">FootbalLab</string>
+    <string name="app_name" translatable="false">FootbalLab</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_upcomingFixtures">Upcoming Fixtures</string>
+    <string name="title_newsMaps">News Map</string>
     <string name="swipe_left_for_register">Swipe Left for Register</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
@@ -22,13 +21,25 @@
     <string name="signup_failure_already_exists">An account already exists for this email!</string>
     <string name="signup_failure_invalid_format">You must supply a valid formatted email!</string>
     <string name="signup_failure_generic">Failed to register: %1$s</string>
-    <string name="competition">Competition</string>
+    <string name="top5LeagueCompetition">Top 5 League Competition Fixtures</string>
     <string name="searchHint">Search</string>
     <string name="searchHome">Search</string>
     <string name="newsByLocationHome">Football News By Location</string>
     <string name="viewMapButtonHome">View Map</string>
     <string name="standings">Standings</string>
     <string name="sourceTitle">Source</string>
-    <string name="viewTopHeadlines">VIEW TOP HEADLINES</string>
+    <string name="viewCountryStatistics">VIEW COUNTRY STATS</string>
+    <string name="maps_titleMapResultsScreen">Local News</string>
     <string name="standingApi">wleHC9avXM3kZYEj</string>
+    <string name="news_api_key">c2fcdaba168f4ced9261152d382caa92</string>
+    <string name="fixtureApiKey">wleHC9avXM3kZYEj</string>
+    <string name="fixtureSecreteKey">se5PKlRYCuHAbQ7IclpOvAktmnNmmrGP</string>
+    <string name="viewFixtures">View Fixtures</string>
+    <string name="fixtures">Fixtures</string>
+    <string name="viewCountryStats">View Country Stats</string>
+    <string name="countryStats">UEFA Country Stats</string>
+    <string name="topHeadline">Top Headline</string>
+    <string name="topHeadlinesHome">Top Headlines</string>
+    <string name="UEFALast5YearsStats">UEFA Stats - The past 5 years </string>
+    <string name="viewTopHeadlines">View Top Headline</string>
 </resources>

@@ -1,42 +1,57 @@
 package com.example.footballab
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.footballab.databinding.ActivityMainBinding
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
-    private lateinit var binding: ActivityMainBinding
-
+    private lateinit var upcomingFixtures: Button
+    private lateinit var standingTable: Button
+    private lateinit var viewMapButton: Button
+    private lateinit var viewTopHeadlneButton: Button
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val sharedPrefs: SharedPreferences = getSharedPreferences("FootbalLab", Context.MODE_PRIVATE)
 
-        val navView: BottomNavigationView = binding.navView
+        viewMapButton = findViewById(R.id.viewMap)
+        viewTopHeadlneButton = findViewById(R.id.topHeadline)
+        upcomingFixtures = findViewById(R.id.upcomingFixtures)
+        standingTable = findViewById(R.id.viewStandingTable)
+        progressBar = findViewById(R.id.progressBar)
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+
+        progressBar.visibility = View.INVISIBLE
+
+        //Go to the map page
+        viewMapButton.setOnClickListener { view: View ->
+            Toast.makeText( getBaseContext(), "Long Press on the map",Toast.LENGTH_SHORT).show();
+            val intent: Intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
+        //Go to the upcoming fixture page
+        upcomingFixtures.setOnClickListener { view: View ->
+            Toast.makeText(getBaseContext(), "Upcoming Fixtures", Toast.LENGTH_LONG).show();
+            val intent: Intent = Intent(this, UpcomingFixtures::class.java)
+            startActivity(intent)
+        }
+        standingTable.setOnClickListener { view: View ->
+            Toast.makeText(getBaseContext(), "Standing Table", Toast.LENGTH_LONG).show();
+            val intent: Intent = Intent(this, CountryStatistics::class.java)
+            startActivity(intent)
+        }
+        viewTopHeadlneButton.setOnClickListener { view: View ->
+            Toast.makeText( getBaseContext(), "View Top Headline",Toast.LENGTH_SHORT).show();
+            val intent: Intent = Intent(this, TopHeadlineScreen::class.java)
+            startActivity(intent)
+        }
     }
 }

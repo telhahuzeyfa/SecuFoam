@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FootbalLab</string>
+    <string name="title_home">ቤት</string>
+    <string name="title_upcomingFixtures">መጪ ግጥሚያዎች
+</string>
+    <string name="title_newsMaps">የዜና ካርታ
+</string>
+    <string name="swipe_left_for_register">ለመመዝገብ ወደ ግራ ያንሸራትቱ
+</string>
+    <string name="login">ግባ</string>
+    <string name="password">ፕስወርድ</string>
+    <string name="e_mail">ኢሜይል</string>
+    <string name="tag">ከእኛ ጋር እንቀላቀል እና \nከእግር ኳስ አለም ጋር እንገናኝ</string>
+    <string name="swipe_right_for_login">ለመግባት_በቀኝ_ያንሸራትቱ</string>
+    <string name="register">ይመዝገቡ</string>
+    <string name="re_type_password">የማለፊያ ቃሉን በድጋሚ ይጻፉ
+</string>
+    <string name="your_name">ሙሉ ስም
+</string>
+    <string name="username">የተጠቃሚ ስም
+</string>
+    <string name="sign_up">መለያ ፍጠር
+</string>
+    <string name="login_failure_doesnt_exist">
+▲
+በዚህ ኢሜይል መለያ ማግኘት አልቻልንም። ለመለያ ለመመዝገብ ይሞክሩ!</string>
+    <string name="login_failure_wrong_credentials">እባክዎ የተጠቃሚ ስምዎን ያረጋግጡ የይለፍ ቃል እና እንደገና ይሞክሩ!</string>
+    <string name="login_failure_generic">መግባት አልተቻለም፡ %1$s</string>
+    <string name="signup_failure_weak_password">የይለፍ ቃልዎ አነስተኛ መስፈርቶችን አያሟላም! ቢያንስ 6 ቁምፊዎች መሆን አለበት።
+</string>
+    <string name="signup_failure_already_exists">ለዚህ ኢሜይል መለያ አስቀድሞ አለ!
+</string>
+    <string name="signup_failure_invalid_format">ትክክለኛ ቅርጸት ያለው ኢሜይል ማቅረብ አለቦት!</string>
+    <string name="signup_failure_generic">መመዝገብ አልተሳካም፡ %1$s</string>
+    <string name="top5LeagueCompetition">ከፍተኛ 5 የሊግ ውድድር ግጥሚያዎች</string>
+    <string name="searchHint">ፈልግ</string>
+    <string name="searchHome">ፈልግ</string>
+    <string name="newsByLocationHome">የእግር ኳስ ዜና በቦታ
+</string>
+    <string name="viewMapButtonHome">ካርታ ይመልከቱ
+</string>
+    <string name="standings">መቆሚያዎች</string>
+    <string name="sourceTitle">ምንጭ</string>
+    <string name="viewCountryStatistics">የሀገርን ስታቲስቲክስ ይመልከቱ
+</string>
+    <string name="maps_titleMapResultsScreen">የሀገር ውስጥ ዜና
+</string>
+    <string name="standingApi">wleHC9avXM3kZYEj</string>
+    <string name="news_api_key">c2fcdaba168f4ced9261152d382caa92</string>
+    <string name="fixtureApiKey">wleHC9avXM3kZYEj</string>
+    <string name="fixtureSecreteKey">se5PKlRYCuHAbQ7IclpOvAktmnNmmrGP</string>
+    <string name="viewFixtures">ግጥሚያዎችን ይመልከቱ
+</string>
+    <string name="fixtures">የቤት ዕቃዎች
+</string>
+    <string name="viewCountryStats">የሀገር ስታቲስቲክስን ይመልከቱ
+</string>
+    <string name="countryStats">UEFA አገር ስታቲስቲክስ
+</string>
+    <string name="topHeadline">ከፍተኛ ርዕስ
+</string>
+    <string name="topHeadlinesHome">ከፍተኛ ርዕስ
+</string>
+    <string name="UEFALast5YearsStats">UEFA ስታቲስቲክስ - ያለፉት 5 ዓመታት </string>
+    <string name="viewTopHeadlines">ዋና ዋና ዜናዎችን ይመልከቱ
+</string>
+</resources>
