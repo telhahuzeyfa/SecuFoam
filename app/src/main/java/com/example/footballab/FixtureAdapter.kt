@@ -3,18 +3,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class SourceAdapter(private val sources: List<Source>):
-    RecyclerView.Adapter<SourceAdapter.ViewHolder>() {
+class FixtureAdapter(private val sources: List<SourceFixture>):
+    RecyclerView.Adapter<FixtureAdapter.ViewHolder>() {
 
     private var pendingCheckedList: ArrayList<String> = ArrayList()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val sourceCard: CardView = itemView.findViewById(R.id.sourceCard)
         val homeTeam: TextView = itemView.findViewById(R.id.homeTeam)
         val awayTeam: TextView = itemView.findViewById(R.id.awayTeam)
-        val halfTimeScore: TextView = itemView.findViewById(R.id.halfTimeScore)
-        val gameStatus: TextView = itemView.findViewById(R.id.gameStatus)
+        val startDate: TextView = itemView.findViewById(R.id.startDate)
+        val status: TextView = itemView.findViewById(R.id.status)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -26,10 +28,14 @@ class SourceAdapter(private val sources: List<Source>):
 
         // Put the data in the each rows
         val currentSource = sources[position]
-        holder.homeTeam.text = currentSource.awayTeam
+        holder.homeTeam.text = currentSource.homeTeam
         holder.awayTeam.text = currentSource.awayTeam
-        holder.halfTimeScore.text = currentSource.halfTimeScore
-        holder.gameStatus.text = currentSource.gameStatus
+        holder.startDate.text = currentSource.startDate
+        holder.status.text = currentSource.status
+//        holder.stats.text = currentSource.stats
+//        holder.sourceCard.setOnClickListener {
+//            var url: Intent = Intent (Intent.ACTION_VIEW, Uri.parse(currentSource.url))
+//        }
     }
     override fun getItemCount(): Int {
         return sources.size

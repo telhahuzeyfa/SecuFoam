@@ -10,26 +10,37 @@
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1395" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19931271477663232" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.36234071151069974" />
         <entry key="app/src/main/res/layout/create_account_activity.xml" value="0.38437561035156254" />
         <entry key="app/src/main/res/layout/following_page_activity.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/fragment_country_statistics.xml" value="0.22644927536231885" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/fragment_fixtures.xml" value="0.2653985507246377" />
+        <entry key="app/src/main/res/layout/fragment_fixtures.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_games_soccer.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.259927797833935" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1517509727626459" />
         <entry key="app/src/main/res/layout/fragment_news_maps.xml" value="0.2653985507246377" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.2653985507246377" />
+        <entry key="app/src/main/res/layout/fragment_standing.xml" value="0.129473876953125" />
         <entry key="app/src/main/res/layout/games_page_activity.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/home_page_activity.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/row_fixtures.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/row_fixtures.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/row_news.xml" value="0.2803442028985507" />
+        <entry key="app/src/main/res/layout/row_sources.xml" value="0.42913385826771655" />
         <entry key="app/src/main/res/layout/row_standings.xml" value="0.2390625" />
+        <entry key="app/src/main/res/layout/row_statistics.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/row_top_headlines.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/select_competition_activity.xml" value="0.3278588807785888" />
         <entry key="app/src/main/res/layout/select_favorite_team_activity.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/setting_page_activity.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/sign_in_activity.xml" value="0.40516459147135436" />
+        <entry key="app/src/main/res/layout/source_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/test.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/layout/test_layout.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/test_map_activity.xml" value="0.14479166666666668" />
+        <entry key="app/src/main/res/layout/test_map_to_delete.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/layout/top_headlines.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1545" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_games.xml" value="0.1545" />

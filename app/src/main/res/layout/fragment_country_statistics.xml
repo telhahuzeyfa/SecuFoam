@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/newsLocationCardView"
+        android:id="@+id/standingTableCardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,25 +22,25 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:gravity="center"
-                android:text="@string/top5LeagueCompetition"
+                android:text="@string/UEFALast5YearsStats"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
-                android:id="@+id/spinnerCategoryDashboard"
+                android:id="@+id/spinnerCategoryDashboard1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toTopOf="@id/selectSourcesText"
+                app:layout_constraintBottom_toTopOf="@id/selectSourcesText1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/categoryText" />
 
             <TextView
-                android:id="@+id/selectSourcesText"
+                android:id="@+id/selectSourcesText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -48,13 +48,13 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/sourceTitle"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@id/fixtureRecycler"
+                app:layout_constraintBottom_toTopOf="@id/standingRecycler"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fixtureRecycler" />
+                app:layout_constraintTop_toBottomOf="@id/standingRecycler" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/fixtureRecycler"
+                android:id="@+id/standingRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="456dp"
                 android:layout_marginStart="16dp"
@@ -64,17 +64,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selectSourcesText" />
-
-            <Button
-                android:id="@+id/skipSourceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SKIP (SEARCH ALL SOURCES)"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fixtureRecycler" />
+                app:layout_constraintTop_toBottomOf="@id/selectSourcesText1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

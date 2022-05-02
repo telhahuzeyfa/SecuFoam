@@ -13,8 +13,4 @@
         android:id="@+id/navigation_maps"
         android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/title_newsMaps" />
-    <item
-        android:id="@+id/navigation_setting"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/title_setting" />
 </menu>

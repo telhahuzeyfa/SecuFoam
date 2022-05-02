@@ -2,7 +2,6 @@ package com.example.footballab
 
 import android.os.Bundle
 import android.view.View
-import android.widget.*
 import android.widget.Spinner
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,64 +12,69 @@ import androidx.recyclerview.widget.RecyclerView
 import org.jetbrains.anko.doAsync
 
 
-class StandingTable : AppCompatActivity(){
-    lateinit var spinnerCategoryHome: Spinner
+class CountryStatistics : AppCompatActivity(){
+    lateinit var spinnerCategoryDashboard1: Spinner
     lateinit var standingRecycler: RecyclerView
-    lateinit var standingAdapter: StandingAdapter
-    lateinit var selectedNameOfCompetition: TextView
+    lateinit var standingAdapter: StatisticsAdapter
+    lateinit var selectSourcesText1: TextView
 
 
     //Initially selected competition
-    private var selectedCompetition = 0
+    private var selectedCountry = 0
 
     var selectedSources = arrayListOf<String>()
 
-    val standingApi = getString(R.string.standingApi)
+//    val standingApi = getString(R.string.standingApi)
 
     companion object{
-        var listOfCompetitions = arrayOf("1", "2", "3", "4", "5")
+        var listOfCountries = arrayOf("England", "Spanien", "Italien", "Niederlande", "Schottland", "Serbien", "Ukraine", "Belgien")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_home)
+        setContentView(R.layout.fragment_country_statistics)
 
-        spinnerCategoryHome = findViewById(R.id.spinnerCategoryHome)
+        val standingApi = getString(R.string.standingApi)
+
+
+        spinnerCategoryDashboard1 = findViewById(R.id.spinnerCategoryDashboard1)
         standingRecycler = findViewById(R.id.standingRecycler)
-        selectedNameOfCompetition = findViewById(R.id.selectedNameOfCompetition)
+        selectSourcesText1 = findViewById(R.id.selectSourcesText1)
+
+        this.title = "Standing Table"
 
         //Initialize the spinner adapter
         val categorySpinnerAdapter =
             ArrayAdapter(
                 this,
                 android.R.layout.simple_spinner_item,
-                listOfCompetitions
+                listOfCountries
             )
         //Initialize the category spinner
-        spinnerCategoryHome.adapter = categorySpinnerAdapter
-        spinnerCategoryHome.setSelection(selectedCompetition)
+        spinnerCategoryDashboard1.adapter = categorySpinnerAdapter
+        spinnerCategoryDashboard1.setSelection(selectedCountry)
 
-        spinnerCategoryHome.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinnerCategoryDashboard1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-                selectedNameOfCompetition.text = "No Competition Selected"
-                selectedNameOfCompetition.text = "Competition (select at least 1)"
-                selectedCompetition = position
+                selectSourcesText1.text = "No Competition Selected"
+                selectSourcesText1.text = "All Competition"
+                selectedCountry = position
 
                 val apiManager = APIManager()
 
                 doAsync {
-                    val source: List<Standings> =
-                        apiManager.retrieveStandings(standingApi, listOfCompetitions[selectedCompetition])
-                    standingAdapter = StandingAdapter(source)
+                    val source: List<Statistics> =
+                        apiManager.retrieveCountryStatistics(standingApi, listOfCountries[selectedCountry])
+                    standingAdapter = StatisticsAdapter(source)
                     runOnUiThread {
                         selectedSources = standingAdapter.getCheckList()
                         standingRecycler.adapter = standingAdapter
                         //Maybe the home page from here
-                        standingRecycler.layoutManager = LinearLayoutManager(this@StandingTable)
+                        standingRecycler.layoutManager = LinearLayoutManager(this@CountryStatistics)
                     }
                 }
             }

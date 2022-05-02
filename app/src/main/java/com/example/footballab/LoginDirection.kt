@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -45,8 +47,8 @@ class LoginDirection: AppCompatActivity() {
         signUp = findViewById(R.id.signUp)
         progressBar = findViewById(R.id.progressBar)
 
-        //Disable login button at first glance
-//        login.isEnabled = false
+        login.isEnabled = false
+        signUp.isEnabled = false
 
         //Assuming the login button is clicked we run this block of code
         login.setOnClickListener { view: View ->
@@ -191,5 +193,33 @@ class LoginDirection: AppCompatActivity() {
                     }
                 }
         }
+        // Using the same TextWatcher instance for both EditTexts so the same block of code runs on each character.
+        username.addTextChangedListener(textWatcher)
+        password.addTextChangedListener(textWatcher)
+
+
+        // Restore the saved username from SharedPreferences and display it to the user when the screen loads.
+        // Default to the empty string if there is no saved username.
+        val savedUsername = sharedPrefs.getString("USERNAME", "")
+        username.setText(savedUsername)
+    }
+    private val textWatcher: TextWatcher = object : TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+        // We can use any of the three functions -- here, we just use `onTextChanged` -- the goal
+        // is the enable the login button only if there is text in both the username & password fields.
+        override fun onTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+            // Kotlin shorthand for username.getText().toString()
+            // .toString() is needed because getText() returns an Editable (basically a char array).
+            val inputtedUsername: String = username.text.toString()
+            val inputtedPassword: String = password.text.toString()
+            val enableButton: Boolean = inputtedUsername.isNotBlank() && inputtedPassword.isNotBlank()
+
+            // Kotlin shorthand for login.setEnabled(enableButton)
+            login.isEnabled = enableButton
+            signUp.isEnabled = enableButton
+        }
+
+        override fun afterTextChanged(p0: Editable?) {}
     }
 }
