@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FootbalLab</string>
+    <string name="app_name" translatable="false">FootbalLab</string>
     <string name="title_home">Home</string>
     <string name="title_upcomingFixtures">Upcoming Fixtures</string>
     <string name="title_newsMaps">News Map</string>

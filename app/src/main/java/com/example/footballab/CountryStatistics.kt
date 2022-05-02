@@ -40,7 +40,7 @@ class CountryStatistics : AppCompatActivity(){
         standingRecycler = findViewById(R.id.standingRecycler)
         selectSourcesText1 = findViewById(R.id.selectSourcesText1)
 
-        this.title = "Standing Table"
+        this.title = "Country Stats"
 
         //Initialize the spinner adapter
         val categorySpinnerAdapter =

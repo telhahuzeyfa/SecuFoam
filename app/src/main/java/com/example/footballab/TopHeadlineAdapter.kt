@@ -38,10 +38,10 @@ class TopHeadlineAdapter(private val headlines: List<TopHeadline>) :
         holder.topHeadlineContents.text = currentSource.content
         holder.publishedAt.text = currentSource.publishedAt
         //Read the card view search with the link
-        holder.topHeadlineCardView.setOnClickListener {
-            var intUrl: Intent = Intent (Intent.ACTION_VIEW, Uri.parse(currentSource.url))
-            it.context.startActivity(intUrl)
-        }
+//        holder.topHeadlineCardView.setOnClickListener {
+//            var intUrl: Intent = Intent (Intent.ACTION_VIEW, Uri.parse(currentSource.url))
+//            it.context.startActivity(intUrl)
+//        }
         Picasso.get().setIndicatorsEnabled(true)
         Picasso
             .get()
