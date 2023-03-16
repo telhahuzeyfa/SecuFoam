@@ -1,9 +1,7 @@
 package com.example.footballab
 
-import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import org.json.JSONObject
 
@@ -29,13 +27,13 @@ class NewsManager {
             }
             address.first().countryCode == "US" -> {
                 Request.Builder()
-                    .url("https://newsapi.org/v2/everything?q=soccer&qInTitle=${address.first().adminArea}")
+                    .url("https://newsapi.org/v2/everything?q=covid19&qInTitle=${address.first().adminArea}")
                     .header("Authorization", "$newsApiKey")
                     .build()
             }
             else -> {
                 Request.Builder()
-                    .url("https://newsapi.org/v2/everything?q=soccer&qInTitle=${address.first().countryName}")
+                    .url("https://newsapi.org/v2/everything?q=covid19&qInTitle=${address.first().countryName}")
                     .header("Authorization", "$newsApiKey")
                     .build()
             }

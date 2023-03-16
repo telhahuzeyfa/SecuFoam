@@ -1,7 +1,5 @@
 package com.example.footballab
-
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.location.Address
 import android.location.Geocoder
@@ -9,11 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +18,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.material.button.MaterialButton
 import org.jetbrains.anko.doAsync
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -44,7 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         localNewsRecycler = findViewById(R.id.localNewsRecycler)
         localNews.visibility = View.GONE
         localMapResultsScreen = findViewById(R.id.maps_titleMapResultsScreen)
-        this.title = "News by location"
+        this.title = "SecuFoam - Covid Stat"
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.

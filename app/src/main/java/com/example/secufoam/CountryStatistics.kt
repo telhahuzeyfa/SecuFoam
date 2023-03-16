@@ -27,12 +27,12 @@ class CountryStatistics : AppCompatActivity(){
 //    val standingApi = getString(R.string.standingApi)
 
     companion object{
-        var listOfCountries = arrayOf("England", "Spanien", "Italien", "Niederlande", "Schottland", "Serbien", "Ukraine", "Belgien")
+        var listOfCountries = arrayOf("Seattle", "Virginia", "Washington", "Maryland", "California", "Massachusetts", "Florida", "Pennsylvania")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_country_statistics)
-
+        this.title = "SecuFoam"
         val standingApi = getString(R.string.standingApi)
 
 
@@ -40,7 +40,7 @@ class CountryStatistics : AppCompatActivity(){
         standingRecycler = findViewById(R.id.standingRecycler)
         selectSourcesText1 = findViewById(R.id.selectSourcesText1)
 
-        this.title = "Country Stats"
+        this.title = "Average Temperature"
 
         //Initialize the spinner adapter
         val categorySpinnerAdapter =
@@ -60,8 +60,8 @@ class CountryStatistics : AppCompatActivity(){
                 position: Int,
                 id: Long
             ) {
-                selectSourcesText1.text = "No Competition Selected"
-                selectSourcesText1.text = "All Competition"
+                selectSourcesText1.text = "No Location Selected"
+                selectSourcesText1.text = "All"
                 selectedCountry = position
 
                 val apiManager = APIManager()

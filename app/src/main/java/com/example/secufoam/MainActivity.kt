@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity(){
     private lateinit var upcomingFixtures: Button
     private lateinit var standingTable: Button
     private lateinit var viewMapButton: Button
-    private lateinit var viewTopHeadlneButton: Button
     private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,10 +22,10 @@ class MainActivity : AppCompatActivity(){
         val sharedPrefs: SharedPreferences = getSharedPreferences("FootbalLab", Context.MODE_PRIVATE)
 
         viewMapButton = findViewById(R.id.viewMap)
-        viewTopHeadlneButton = findViewById(R.id.topHeadline)
         upcomingFixtures = findViewById(R.id.upcomingFixtures)
         standingTable = findViewById(R.id.viewStandingTable)
         progressBar = findViewById(R.id.progressBar)
+        this.title = "SecuFoam"
 
 
         progressBar.visibility = View.INVISIBLE
@@ -46,11 +45,6 @@ class MainActivity : AppCompatActivity(){
         standingTable.setOnClickListener { view: View ->
             Toast.makeText(getBaseContext(), "Standing Table", Toast.LENGTH_LONG).show();
             val intent: Intent = Intent(this, CountryStatistics::class.java)
-            startActivity(intent)
-        }
-        viewTopHeadlneButton.setOnClickListener { view: View ->
-            Toast.makeText( getBaseContext(), "View Top Headline",Toast.LENGTH_SHORT).show();
-            val intent: Intent = Intent(this, TopHeadlineScreen::class.java)
             startActivity(intent)
         }
     }

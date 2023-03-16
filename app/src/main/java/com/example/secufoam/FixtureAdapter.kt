@@ -13,10 +13,7 @@ class FixtureAdapter(private val sources: List<SourceFixture>):
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sourceCard: CardView = itemView.findViewById(R.id.sourceCard)
-        val homeTeam: TextView = itemView.findViewById(R.id.homeTeam)
-        val awayTeam: TextView = itemView.findViewById(R.id.awayTeam)
-        val startDate: TextView = itemView.findViewById(R.id.startDate)
-        val status: TextView = itemView.findViewById(R.id.status)
+        val numVal: TextView = itemView.findViewById(R.id.numVal)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -28,10 +25,7 @@ class FixtureAdapter(private val sources: List<SourceFixture>):
 
         // Put the data in the each rows
         val currentSource = sources[position]
-        holder.homeTeam.text = currentSource.homeTeam
-        holder.awayTeam.text = currentSource.awayTeam
-        holder.startDate.text = currentSource.startDate
-        holder.status.text = currentSource.status
+        holder.numVal.text = currentSource.numValue
 //        holder.stats.text = currentSource.stats
 //        holder.sourceCard.setOnClickListener {
 //            var url: Intent = Intent (Intent.ACTION_VIEW, Uri.parse(currentSource.url))

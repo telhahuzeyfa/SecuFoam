@@ -22,17 +22,17 @@ class UpcomingFixtures : AppCompatActivity(){
 
 
     companion object{
-        var listOfCompetitions = arrayOf("Premier League", "Liga 1", "Serie A", "Eerste Divisie", "Segunda Division")
+        var listOfCompetitions = arrayOf("SEH", "Tompkins Hall", "Elliott", "USC", "District Hall")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_fixtures)
+        this.title = "SecuFoam"
 
         val fixtureApiKey = getString(R.string.fixtureApiKey)
 
         spinnerCategory = findViewById(R.id.spinnerCategoryDashboard)
         fixtureRecycler = findViewById(R.id.fixtureRecycler)
-        skipSourceButton = findViewById(R.id.skipSourceButton)
         selectSourcesText = findViewById(R.id.selectSourcesText)
 
         //Initialize the spinner adapter
@@ -40,7 +40,7 @@ class UpcomingFixtures : AppCompatActivity(){
             ArrayAdapter(
                 this,
                 android.R.layout.simple_spinner_item,
-               listOfCompetitions
+                listOfCompetitions
             )
         //Initialize the category spinner
         spinnerCategory.adapter = categorySpinnerAdapter
@@ -53,8 +53,8 @@ class UpcomingFixtures : AppCompatActivity(){
                 position: Int,
                 id: Long
             ) {
-                selectSourcesText.text = "0 Sources Selected"
-                selectSourcesText.text = "Sources (select at least 1)"
+                selectSourcesText.text = "0 location Selected"
+                selectSourcesText.text = "Locations (select at least 1)"
                 selectedCompetition = position
                 val newsManger = APIManager()
                 doAsync {

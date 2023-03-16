@@ -33,6 +33,7 @@ class LoginDirection: AppCompatActivity() {
 
         //Layout to use for this case
         setContentView(R.layout.sign_in_activity)
+        this.title = "SecuFoam"
 
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)

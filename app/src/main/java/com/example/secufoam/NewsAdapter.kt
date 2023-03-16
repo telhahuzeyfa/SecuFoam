@@ -1,6 +1,5 @@
 package com.example.footballab
 
-
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.footballab.News
 import com.squareup.picasso.Picasso
 
 class NewsAdapter(private val news: List<News> ): RecyclerView.Adapter<NewsAdapter.ViewHolder>(){

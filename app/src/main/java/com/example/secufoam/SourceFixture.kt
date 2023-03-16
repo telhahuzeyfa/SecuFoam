@@ -3,5 +3,5 @@ import java.io.Serializable
 
 //data class SourceFixture(val homeTeam: String, val awayTeam: String, val date: String) :
 //    Serializable
-data class SourceFixture(val homeTeam: String, val awayTeam: String, val startDate: String, val status: String) :
+data class SourceFixture(val numValue: String) :
     Serializable

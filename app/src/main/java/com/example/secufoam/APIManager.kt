@@ -1,5 +1,6 @@
 package com.example.footballab
 
+
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.OkHttpClient
@@ -28,11 +29,11 @@ class APIManager : AppCompatActivity(){
         val listOfCompetitions = mutableListOf<Statistics>()
 
         //Requesting the api
-        var request: Request = Request.Builder()
-            .url("https://transfermarket.p.rapidapi.com/statistic/list-uefa-5year-rankings?countryName=${categoryQuery}")
+        val request = Request.Builder()
+            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=${categoryQuery}")
             .get()
-            .addHeader("X-RapidAPI-Host", "transfermarket.p.rapidapi.com")
             .addHeader("X-RapidAPI-Key", "bda3cee26dmsh185df17cf98c229p1481ddjsn7cbadc8d4afe")
+            .addHeader("X-RapidAPI-Host", "weather-by-api-ninjas.p.rapidapi.com")
             .build()
 
         //After waiting the response from the server
@@ -42,21 +43,13 @@ class APIManager : AppCompatActivity(){
         //If it's successful
         if (response.isSuccessful && !responseBody.isNullOrEmpty()){
             //Parse the json string
-            val json = JSONObject(responseBody)
-            val total = json.getJSONArray("teams")
-            for (i in 0 until total.length()){
-                var curr = total.getJSONObject(i)
-                val countryImage  = curr.getString("countryImage")
-                val countryName: String = curr.getString("countryName")
-                val totalPoints: String = curr.getString("totalPoints")
-                val points2021: String = curr.getString("points2021")
-                val points2020: String = curr.getString("points2020")
-                val points2019: String = curr.getString("points2019")
-                val points2018: String = curr.getString("points2018")
-                val points2017: String = curr.getString("points2017")
+            val json: JSONObject = JSONObject(responseBody)
 
-                listOfCompetitions.add(Statistics(countryImage, countryName, totalPoints, points2021, points2020, points2019, points2018, points2017, "Total Points: ", "Year 2021: ","Year 2020: ","Year 2019: ", "Year 2018: ", "Year 2017"))
-            }
+            val humidity: String = json.getString("humidity")
+
+            listOfCompetitions.add(Statistics("Average Temperature: $humidity"))
+        }else{
+            return emptyList()
         }
         return listOfCompetitions
     }
@@ -65,10 +58,8 @@ class APIManager : AppCompatActivity(){
 
         //Requesting the api
         val request: Request = Request.Builder()
-            .url("https://football-prediction-api.p.rapidapi.com/api/v2/predictions?market=classic&iso_date=2022-05-01&federation=UEFA&competition_name=${categoryQuery}")
+            .url("https://api.countapi.xyz/hit/secufoam.com")
             .get()
-            .addHeader("X-RapidAPI-Host", "football-prediction-api.p.rapidapi.com")
-            .addHeader("X-RapidAPI-Key", "bda3cee26dmsh185df17cf98c229p1481ddjsn7cbadc8d4afe")
             .build()
 
         //After waiting the response from the server
@@ -79,17 +70,10 @@ class APIManager : AppCompatActivity(){
         if (response.isSuccessful && !responseBody.isNullOrEmpty()){
             //Parse the json string
             val json: JSONObject = JSONObject(responseBody)
-            val fixtures: JSONArray = json.getJSONArray("data")
 
-            for (i in 0 until fixtures.length()){
-                val curr: JSONObject = fixtures.getJSONObject(i)
-                val homeTeam: String = curr.getString("home_team")
-                val awayTeam: String = curr.getString("away_team")
-                val startDate: String = curr.getString("start_date")
-                val status: String = curr.getString("status")
+            val numValue: String = json.getString("value")
 
-                listOfCompetitions.add(SourceFixture(homeTeam, awayTeam, startDate, status))
-            }
+            listOfCompetitions.add(SourceFixture("Total Activation: $numValue"))
         }else{
             return emptyList()
         }
