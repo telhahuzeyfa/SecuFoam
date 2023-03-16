@@ -1,4 +1,4 @@
-package com.example.footballab
+package com.example.secufoam
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

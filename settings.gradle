@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         jcenter()
     }
 }
-rootProject.name = "FootbalLab"
+rootProject.name = "SecuFoam"
 include ':app'

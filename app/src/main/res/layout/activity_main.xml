@@ -19,12 +19,29 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/secuFoam"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="@string/viewFixtures"
+                android:text="@string/viewTotalActivations"
                 android:textFontWeight="700"
                 android:textSize="16sp" />
 
@@ -33,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/fixtures" />
+                android:text="@string/activation" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -83,7 +100,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="@string/viewCountryStats"
+                android:text="@string/averageTemperature"
                 android:textFontWeight="600"
                 android:textSize="16sp"/>
 
@@ -92,35 +109,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/countryStats" />
+                android:text="@string/temperature" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="@string/topHeadline"
-                android:textFontWeight="600"
-                android:textSize="16sp"/>
 
-            <Button
-                android:id="@+id/topHeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/topHeadline" />
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
     <ProgressBar
         android:id="@+id/progressBar"

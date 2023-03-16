@@ -1,4 +1,4 @@
-package com.example.footballab
+package com.example.secufoam
 
 import android.content.Context
 import android.content.Intent

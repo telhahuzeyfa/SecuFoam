@@ -1,4 +1,4 @@
-package com.example.footballab
+package com.example.secufoam
 
 class FootballAdapter {
 }

@@ -1,4 +1,4 @@
-package com.example.footballab
+package com.example.secufoam
 
 import android.os.Bundle
 import android.view.View

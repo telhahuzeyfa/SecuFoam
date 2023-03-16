@@ -20,65 +20,19 @@
             android:layout_width="377dp"
             android:layout_height="118dp"
             android:layout_margin="8dp">
-
             <TextView
-                android:id="@+id/homeTeam"
-                android:layout_width="148dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="80dp"
-                android:text="Home Team"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/vs"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="155dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="48dp"
-                android:text="Status"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/vs"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/startDate"
-                android:layout_width="152dp"
-                android:layout_height="17dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Start Date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/vs"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/vs"
-                android:layout_width="0dp"
+                android:id="@+id/numVal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="VS"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/awayTeam"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.505" />
-
-            <TextView
-                android:id="@+id/awayTeam"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="88dp"
-                android:text="Away Team"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Value"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.505" />
-
+                app:layout_constraintVertical_bias="0.335"
+                tools:text="Android Central" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

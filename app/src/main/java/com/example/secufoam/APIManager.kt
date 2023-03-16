@@ -1,13 +1,11 @@
-package com.example.footballab
+package com.example.secufoam
 
 
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
-import org.json.JSONArray
 import org.json.JSONObject
 
 class APIManager : AppCompatActivity(){

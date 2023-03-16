@@ -1,4 +1,4 @@
-package com.example.footballab
+package com.example.secufoam
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

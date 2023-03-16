@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.footballab.ui.home.HomeFragment"
+        android:name="com.example.secufoam.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_fixtures"
-        android:name="com.example.footballab.ui.fixtures.FixtureFragment"
+        android:name="com.example.secufoam.ui.fixtures.FixtureFragment"
         android:label="@string/title_upcomingFixtures"
         tools:layout="@layout/fragment_fixtures" />
 
     <fragment
         android:id="@+id/navigation_maps"
-        android:name="com.example.footballab.ui.newsMaps.MapsNewsFragment"
+        android:name="com.example.secufoam.ui.newsMaps.MapsNewsFragment"
         android:label="@string/title_newsMaps"
         tools:layout="@layout/test_layout" />
 </navigation>
