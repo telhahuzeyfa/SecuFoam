@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"/>
+
                 <TextView
                     android:id="@+id/selectedNameOfCompetition"
                     android:layout_width="match_parent"
@@ -43,7 +44,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/sourceTitle"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
