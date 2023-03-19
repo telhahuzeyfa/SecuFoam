@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.sp
 
 class MainActivity : AppCompatActivity(){
 
@@ -16,20 +19,68 @@ class MainActivity : AppCompatActivity(){
     private lateinit var institutionAdapter: InstitutionAdapter
     private lateinit var viewMapButton: Button
 
+
+    //George Washington University will be the initially selected institution by default
+    private var selectedInstitution = 0;
+
+
+    //List of institutions - further update
+    companion object {
+        var listOfInstitutions = arrayOf("GWU", "American", "Georgetown", "GMU", "JMU", "Virginia Tech")
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sample_landing_page)
 
-        val sharedPrefs: SharedPreferences = getSharedPreferences("FootbalLab", Context.MODE_PRIVATE)
+        val sharedPrefs: SharedPreferences = getSharedPreferences("SecuFoam", Context.MODE_PRIVATE)
 
+        institutionsSpinner = findViewById(R.id.institutionsSpinner)
+        institutionRecycler = findViewById(R.id.institutionRecycler)
         viewMapButton = findViewById(R.id.viewMap)
-//        upcomingFixtures = findViewById(R.id.upcomingFixtures)
-//        standingTable = findViewById(R.id.viewStandingTable)
-//        progressBar = findViewById(R.id.progressBar)
+        val institutionApi = R.string.institutionApi
+
         this.title = "SecuFoam"
 
+        //Initialize the category adapter
+        val categoryInstitutionAdapter =
+            ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                listOfInstitutions
+            )
+       //Initialize category spinner
+        institutionsSpinner.adapter = categoryInstitutionAdapter
+        institutionsSpinner.setSelection(selectedInstitution)
 
-//        progressBar.visibility = View.INVISIBLE
+        institutionsSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+//                selectSourcesText1.text = "No Location Selected"
+//                selectSourcesText1.text = "All"
+                selectedInstitution = position
+
+                val apiManager = APIManager()
+
+                doAsync {
+                    val institution: List<Institutions> =
+                        apiManager.hallOneGwu(institutionApi, MainActivity.listOfInstitutions[selectedInstitution])
+                    institutionAdapter = InstitutionAdapter(institution)
+                    runOnUiThread {
+//                        selectedSources = standingAdapter.getCheckList()
+                        institutionRecycler.adapter = institutionAdapter
+                        //Maybe the home page from here
+                        institutionRecycler.layoutManager = LinearLayoutManager(this@MainActivity)
+                    }
+                }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
 
         //Go to the map page
         viewMapButton.setOnClickListener { view: View ->
@@ -37,16 +88,5 @@ class MainActivity : AppCompatActivity(){
             val intent: Intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
         }
-        //Go to the upcoming fixture page
-//        upcomingFixtures.setOnClickListener { view: View ->
-//            Toast.makeText(getBaseContext(), "Upcoming Fixtures", Toast.LENGTH_LONG).show();
-//            val intent: Intent = Intent(this, UpcomingFixtures::class.java)
-//            startActivity(intent)
-//        }
-//        standingTable.setOnClickListener { view: View ->
-//            Toast.makeText(getBaseContext(), "Standing Table", Toast.LENGTH_LONG).show();
-//            val intent: Intent = Intent(this, CountryStatistics::class.java)
-//            startActivity(intent)
-//        }
     }
 }

@@ -56,6 +56,7 @@ class APIManager : AppCompatActivity(){
 
         //Requesting the api
         val request: Request = Request.Builder()
+                //Dispenser one API - GWU
             .url("https://api.countapi.xyz/hit/secufoam.com")
             .get()
             .build()
@@ -72,6 +73,34 @@ class APIManager : AppCompatActivity(){
             val numValue: String = json.getString("value")
 
             listOfCompetitions.add(SourceFixture("Total Activation: $numValue"))
+        }else{
+            return emptyList()
+        }
+        return listOfCompetitions
+    }
+    //Test function
+    fun hallOneGwu(fixtureApiKey: Int, categoryQuery: String): List<Institutions>{
+        val listOfCompetitions = mutableListOf<Institutions>()
+
+        //Requesting the api
+        val request: Request = Request.Builder()
+            //Dispenser one API - GWU
+            .url("https://api.countapi.xyz/hit/Hall1.com")
+            .get()
+            .build()
+
+        //After waiting the response from the server
+        val response: Response = okHttpClient.newCall(request).execute()
+        val responseBody: String? = response.body?.string()
+
+        //If it's successful
+        if (response.isSuccessful && !responseBody.isNullOrEmpty()){
+            //Parse the json string
+            val json: JSONObject = JSONObject(responseBody)
+
+            val numValue: String = json.getString("value")
+
+            listOfCompetitions.add(Institutions("", "George Washington University - Science and Engineering Hall", "Total Activation: $numValue"))
         }else{
             return emptyList()
         }

@@ -37,6 +37,7 @@
     <string name="viewCountryStatistics">VIEW COUNTRY STATS</string>
     <string name="maps_titleMapResultsScreen">Local News</string>
     <string name="standingApi">wleHC9avXM3kZYEj</string>
+    <string name="institutionApi">wleHC9avXM3kZYEj</string>
     <string name="news_api_key">c2fcdaba168f4ced9261152d382caa92</string>
     <string name="fixtureApiKey">wleHC9avXM3kZYEj</string>
     <string name="fixtureSecreteKey">se5PKlRYCuHAbQ7IclpOvAktmnNmmrGP</string>
