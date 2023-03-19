@@ -10,23 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.sp
 
 class MainActivity : AppCompatActivity(){
 
-    private lateinit var institutionsSpinner: Spinner
     private lateinit var institutionRecycler: RecyclerView
-    private lateinit var institutionAdapter: InstitutionAdapter
+    private lateinit var hallsAdapter: HallsAdapter
     private lateinit var viewMapButton: Button
+    private lateinit var hallsSpinner: Spinner
 
-
-    //George Washington University will be the initially selected institution by default
-    private var selectedInstitution = 0;
+    //The first hall selected
+    private var selectedHall = 0;
 
 
     //List of institutions - further update
     companion object {
-        var listOfInstitutions = arrayOf("GWU", "American", "Georgetown", "GMU", "JMU", "Virginia Tech")
+        var listOfInstitutions = arrayOf("SEH", "USC", "South", "District", "Elliot", "Tomkins")
     }
 
 
@@ -36,7 +34,7 @@ class MainActivity : AppCompatActivity(){
 
         val sharedPrefs: SharedPreferences = getSharedPreferences("SecuFoam", Context.MODE_PRIVATE)
 
-        institutionsSpinner = findViewById(R.id.institutionsSpinner)
+        hallsSpinner = findViewById(R.id.hallsSpinner)
         institutionRecycler = findViewById(R.id.institutionRecycler)
         viewMapButton = findViewById(R.id.viewMap)
         val institutionApi = R.string.institutionApi
@@ -51,10 +49,10 @@ class MainActivity : AppCompatActivity(){
                 listOfInstitutions
             )
        //Initialize category spinner
-        institutionsSpinner.adapter = categoryInstitutionAdapter
-        institutionsSpinner.setSelection(selectedInstitution)
+        hallsSpinner.adapter = categoryInstitutionAdapter
+        hallsSpinner.setSelection(selectedHall)
 
-        institutionsSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        hallsSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -63,17 +61,17 @@ class MainActivity : AppCompatActivity(){
             ) {
 //                selectSourcesText1.text = "No Location Selected"
 //                selectSourcesText1.text = "All"
-                selectedInstitution = position
+                selectedHall = position
 
                 val apiManager = APIManager()
 
                 doAsync {
                     val institution: List<Institutions> =
-                        apiManager.hallOneGwu(institutionApi, MainActivity.listOfInstitutions[selectedInstitution])
-                    institutionAdapter = InstitutionAdapter(institution)
+                        apiManager.hallOneGwu(institutionApi, MainActivity.listOfInstitutions[selectedHall])
+                    hallsAdapter = HallsAdapter(institution)
                     runOnUiThread {
 //                        selectedSources = standingAdapter.getCheckList()
-                        institutionRecycler.adapter = institutionAdapter
+                        institutionRecycler.adapter = hallsAdapter
                         //Maybe the home page from here
                         institutionRecycler.layoutManager = LinearLayoutManager(this@MainActivity)
                     }

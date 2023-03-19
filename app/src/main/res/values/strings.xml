@@ -50,4 +50,6 @@
     <string name="UEFALast5YearsStats">UEFA Stats - The past 5 years </string>
     <string name="viewTopHeadlines">View Top Headline</string>
     <string name="institutions">Institutions</string>
+    <string name="selectInstitution">Please select your institution</string>
+    <string name="halls">Halls</string>
 </resources>

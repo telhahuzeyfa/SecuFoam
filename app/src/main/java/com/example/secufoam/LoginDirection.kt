@@ -76,7 +76,7 @@ class LoginDirection: AppCompatActivity() {
                             .apply()
 
                         //Once the user is successfully logged in the will be directed to the Main Activity page which is basically the home page
-                        val intent: Intent = Intent(this, MainActivity::class.java)
+                        val intent: Intent = Intent(this, SelectInstitution::class.java)
                         startActivity(intent)
                     }else{
                         val exception = task.exception

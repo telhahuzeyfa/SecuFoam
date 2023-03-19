@@ -22,25 +22,25 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:gravity="center"
-                android:text="@string/institutions"
+                android:text="@string/halls"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
-                android:id="@+id/institutionsSpinner"
+                android:id="@+id/hallsSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toTopOf="@id/institutionsSpinnerText"
+                app:layout_constraintBottom_toTopOf="@id/hallsSpinnerText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/categoryText" />
 
             <TextView
-                android:id="@+id/institutionsSpinnerText"
+                android:id="@+id/hallsSpinnerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -64,7 +64,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/institutionsSpinnerText" />
+                app:layout_constraintTop_toBottomOf="@id/hallsSpinnerText" />
 
             <LinearLayout
                 android:layout_width="match_parent"

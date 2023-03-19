@@ -111,9 +111,15 @@ class APIManager : AppCompatActivity(){
             val json1: JSONObject = JSONObject(responseBody1)
 
             val numValue: String = json.getString("value")
+//            val numValue1: String = json.getString("value")
+
             val humidity: String = json1.getString("humidity")
 
-            listOfCompetitions.add(Institutions("Science and Engineering Hall", "Total Activations: $numValue", "Average Temperature: $humidity", "Number of Dispenser: 1"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 1"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 2"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 3"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 4"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 5"))
         }else{
             return emptyList()
         }
