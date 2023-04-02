@@ -5,7 +5,7 @@
 
     <ImageView
         android:id="@+id/institutionImage"
-        android:layout_width="219dp"
+        android:layout_width="377dp"
         android:layout_height="166dp"
         android:adjustViewBounds="true"
         android:contentDescription="Don't matter"
@@ -24,11 +24,13 @@
         android:id="@+id/institutionContents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Something"
         android:padding="16dp"/>
 
     <TextView
         android:id="@+id/averageTemp"
         android:layout_width="match_parent"
+        android:text="Something"
         android:layout_height="wrap_content"
         android:padding="16dp"/>
 
@@ -36,17 +38,20 @@
         android:id="@+id/totalNumOfDispensers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Something"
         android:padding="16dp"/>
 
     <TextView
         android:id="@+id/dispenserName"
         android:layout_width="match_parent"
+        android:text="Something"
         android:layout_height="wrap_content"
         android:padding="16dp"/>
 
     <TextView
         android:id="@+id/dispenserStatus"
         android:layout_width="match_parent"
+        android:text="Something"
         android:layout_height="wrap_content"
         android:padding="16dp"/>
 
