@@ -78,78 +78,105 @@ class APIManager : AppCompatActivity(){
         }
         return listOfCompetitions
     }
-    //Test function
     fun hallOneGwu(fixtureApiKey: Int, categoryQuery: String): List<Institutions>{
         val listOfCompetitions = mutableListOf<Institutions>()
 
-        //Requesting the api
-        val request: Request = Request.Builder()
-            //Dispenser one API - GWU
-            .url("https://api.countapi.xyz/hit/${categoryQuery}")
-            .get()
-            .build()
 
-        val request1 = Request.Builder()
-            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Washington")
+
+        val dispenser1 = Request.Builder()
+            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Oregon")
             .get()
-            .addHeader("X-RapidAPI-Key", "bda3cee26dmsh185df17cf98c229p1481ddjsn7cbadc8d4afe")
+            .addHeader("X-RapidAPI-Key", "c7e8441dddmsh9dd8cc5e2a1ee91p134a62jsn512c134bb342")
             .addHeader("X-RapidAPI-Host", "weather-by-api-ninjas.p.rapidapi.com")
             .build()
 
+        val dispenser2 = Request.Builder()
+            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Seattle")
+            .get()
+            .addHeader("X-RapidAPI-Key", "c7e8441dddmsh9dd8cc5e2a1ee91p134a62jsn512c134bb342")
+            .addHeader("X-RapidAPI-Host", "weather-by-api-ninjas.p.rapidapi.com")
+            .build()
+
+        val dispenser3 = Request.Builder()
+            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Alaska")
+            .get()
+            .addHeader("X-RapidAPI-Key", "c7e8441dddmsh9dd8cc5e2a1ee91p134a62jsn512c134bb342")
+            .addHeader("X-RapidAPI-Host", "weather-by-api-ninjas.p.rapidapi.com")
+            .build()
+        val dispenser4 = Request.Builder()
+            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Oregon")
+            .get()
+            .addHeader("X-RapidAPI-Key", "c7e8441dddmsh9dd8cc5e2a1ee91p134a62jsn512c134bb342")
+            .addHeader("X-RapidAPI-Host", "weather-by-api-ninjas.p.rapidapi.com")
+            .build()
+        val dispenser5 = Request.Builder()
+            .url("https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=California")
+            .get()
+            .addHeader("X-RapidAPI-Key", "c7e8441dddmsh9dd8cc5e2a1ee91p134a62jsn512c134bb342")
+            .addHeader("X-RapidAPI-Host", "weather-by-api-ninjas.p.rapidapi.com")
+            .build()
 
         //After waiting the response from the server
-        val response: Response = okHttpClient.newCall(request).execute()
-        val response1: Response = okHttpClient.newCall(request1).execute()
+//        val response: Response = okHttpClient.newCall(request).execute()
+//        val response1: Response = okHttpClient.newCall(request1).execute()
+        val responseDispenser1: Response = okHttpClient.newCall(dispenser1).execute()
+        val responseDispenser2: Response = okHttpClient.newCall(dispenser2).execute()
+        val responseDispenser3: Response = okHttpClient.newCall(dispenser3).execute()
+        val responseDispenser4: Response = okHttpClient.newCall(dispenser4).execute()
+        val responseDispenser5: Response = okHttpClient.newCall(dispenser5).execute()
 
-        val responseBody: String? = response.body?.string()
-        val responseBody1: String? = response1.body?.string()
+//        val responseBody: String? = response.body?.string()
+//        val responseBody1: String? = response1.body?.string()
+        val responseBodyDispenser1: String? = responseDispenser1.body?.string()
+        val responseBodyDispenser2: String? = responseDispenser2.body?.string()
+        val responseBodyDispenser3: String? = responseDispenser3.body?.string()
+        val responseBodyDispenser4: String? = responseDispenser4.body?.string()
+        val responseBodyDispenser5: String? = responseDispenser5.body?.string()
 
         //If it's successful
-        if ((response.isSuccessful && !responseBody.isNullOrEmpty()) && (response1.isSuccessful && !responseBody1.isNullOrEmpty())){
-            //Parse the json string
-            val json: JSONObject = JSONObject(responseBody)
-            val json1: JSONObject = JSONObject(responseBody1)
+        if ((responseDispenser1.isSuccessful && !responseBodyDispenser1.isNullOrEmpty())){
+            val jsonDispenser1: JSONObject = JSONObject(responseBodyDispenser1)
 
-            val numValue: String = json.getString("value")
-//            val numValue1: String = json.getString("value")
+            val humidity: String = jsonDispenser1.getString("humidity")
+            val totalActivation: String = jsonDispenser1.getString("cloud_pct")
 
-            val humidity: String = json1.getString("humidity")
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 1"))
+        }
+        if ((responseDispenser2.isSuccessful && !responseBodyDispenser2.isNullOrEmpty())) {
+            val jsonDispenser2: JSONObject = JSONObject(responseBodyDispenser2)
 
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 1"))
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 2"))
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 3"))
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 4"))
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $numValue", "Average Temperature: $humidity", "Dispenser: 5"))
-        }else{
+            val humidity: String = jsonDispenser2.getString("humidity")
+            val totalActivation: String = jsonDispenser2.getString("cloud_pct")
+
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 2"))
+        }
+        if ((responseDispenser3.isSuccessful && !responseBodyDispenser3.isNullOrEmpty())) {
+            val jsonDispenser3: JSONObject = JSONObject(responseBodyDispenser3)
+
+            val humidity: String = jsonDispenser3.getString("humidity")
+            val totalActivation: String = jsonDispenser3.getString("cloud_pct")
+
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 3"))
+        }
+        if ((responseDispenser4.isSuccessful && !responseBodyDispenser4.isNullOrEmpty())) {
+            val jsonDispenser4: JSONObject = JSONObject(responseBodyDispenser4)
+
+            val humidity: String = jsonDispenser4.getString("humidity")
+            val totalActivation: String = jsonDispenser4.getString("cloud_pct")
+
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 4"))
+        }
+        if ((responseDispenser5.isSuccessful && !responseBodyDispenser5.isNullOrEmpty())) {
+            val jsonDispenser4: JSONObject = JSONObject(responseBodyDispenser5)
+
+            val humidity: String = jsonDispenser4.getString("humidity")
+            val totalActivation: String = jsonDispenser4.getString("cloud_pct")
+
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 5"))
+        }
+        else{
             return emptyList()
         }
         return listOfCompetitions
     }
-//    fun hallTneGwu(fixtureApiKey: Int, categoryQuery: String): List<Institutions>{
-//        val listOfCompetitions = mutableListOf<Institutions>()
-//
-//        //Requesting the api
-//        val request: Request = Request.Builder()
-//            //Dispenser one API - GWU
-//            .url("https://api.countapi.xyz/hit/${categoryQuery}")
-//            .get()
-//            .build()
-//
-//        //After waiting the response from the server
-//        val response: Response = okHttpClient.newCall(request).execute()
-//        val responseBody: String? = response.body?.string()
-//
-//        //If it's successful
-//        if (response.isSuccessful && !responseBody.isNullOrEmpty()){
-//            //Parse the json string
-//            val json: JSONObject = JSONObject(responseBody)
-//
-//            val numValue: String = json.getString("value")
-//
-//            listOfCompetitions.add(Institutions("", "George Washington University - USC", "Total Activation: $numValue"))
-//        }else{
-//            return emptyList()
-//        }
-//        return listOfCompetitions
-//    }
 }

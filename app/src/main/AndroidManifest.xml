@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FootbalLab">
+        android:theme="@style/Theme.SecuFoam">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDAmA68A1_L95xN33aY4o-p2LFArq60ptc" />

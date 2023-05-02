@@ -22,7 +22,7 @@ class UpcomingFixtures : AppCompatActivity(){
 
 
     companion object{
-        var listOfCompetitions = arrayOf("SEH", "Tompkins Hall", "Elliott", "USC", "District Hall")
+        var listOfCompetitions = arrayOf("Science and Engineering Hall", "Tompkins Hall", "Elliott School of International Affairs", "University Student Center", "District Hall")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

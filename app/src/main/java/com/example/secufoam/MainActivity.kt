@@ -21,15 +21,16 @@ class MainActivity : AppCompatActivity(){
     //The first hall selected
     private var selectedHall = 0;
 
-
     //List of institutions - further update
     companion object {
-        var listOfInstitutions = arrayOf("SEH", "USC", "South", "District", "Elliot", "Tomkins")
+        var listOfInstitutions = arrayOf("Science and Engineering Hall", "Tompkins Hall", "Elliott School of International Affairs", "University Student Center", "District Hall")
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //This is the main page
         setContentView(R.layout.sample_landing_page)
 
         val sharedPrefs: SharedPreferences = getSharedPreferences("SecuFoam", Context.MODE_PRIVATE)

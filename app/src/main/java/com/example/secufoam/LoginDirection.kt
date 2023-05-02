@@ -38,7 +38,7 @@ class LoginDirection: AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
-        val sharedPrefs: SharedPreferences = getSharedPreferences("FootbalLab", Context.MODE_PRIVATE)
+        val sharedPrefs: SharedPreferences = getSharedPreferences("SecuFoam", Context.MODE_PRIVATE)
 
         Log.d("LoginDirection", "Login Direction Called Once")
 
