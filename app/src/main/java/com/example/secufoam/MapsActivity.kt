@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_AZURE
 import org.jetbrains.anko.doAsync
 import java.util.*
 
+// Start of highlighted code
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
@@ -38,6 +39,38 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+
+// Define the center point of the two circles
+        val center = LatLng(38.8985 + 0.002, -77.0465)
+
+// Define the radius and number of points for the circles
+        val radius = 0.005
+        val points = 50
+
+// Define the coordinates for the red circle
+        val polygonCoords = (0 until points).map {
+            val angle = it.toDouble() / points.toDouble() * 2.0 * Math.PI
+            LatLng(center.latitude + radius * Math.sin(angle), center.longitude + radius * Math.cos(angle) - 0.001)
+        }
+
+// Add the red circle to the map
+        val polygon = mMap.addPolygon(PolygonOptions().addAll(polygonCoords))
+        polygon.fillColor = Color.argb(128, 255, 64, 64)
+        polygon.strokeWidth = 0f
+
+// Define the coordinates for the green circle
+        val polygonCoords1 = (0 until points).map {
+            val angle = it.toDouble() / points.toDouble() * 2.0 * Math.PI
+            LatLng(center.latitude + radius * Math.sin(angle), center.longitude + radius * Math.cos(angle) + 0.001)
+        }
+
+// Add the green circle to the map
+        val polygon1 = mMap.addPolygon(PolygonOptions().addAll(polygonCoords1))
+        polygon1.fillColor = Color.argb(128, 64, 255, 64)
+        polygon1.strokeWidth = 0f
+
+
 
         // Define the coordinates of George Washington University
         val gwuLatLng = LatLng(38.899176, -77.047092)
