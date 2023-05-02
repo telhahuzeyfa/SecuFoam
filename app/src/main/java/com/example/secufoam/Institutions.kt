@@ -5,5 +5,7 @@ data class Institutions(
     val institutionTitleSource: String,
     val institutionContents: String,
     val averageTemp: String,
-    val numOfDispensers: String
+    val numOfDispensers: String,
+    val humidity: String,
+    val totalActivation: String
 ) : Serializable

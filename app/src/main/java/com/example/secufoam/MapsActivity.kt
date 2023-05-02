@@ -1,6 +1,7 @@
 package com.example.secufoam
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
@@ -16,29 +17,18 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_AZURE
 import org.jetbrains.anko.doAsync
+import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var localNews: CardView
-    private lateinit var localNewsRecycler: RecyclerView
-    private lateinit var localMapResultsScreen: TextView
-
-    private val logD = "MapsActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-
-        localNews = findViewById(R.id.mapsLocalNewsCard)
-        localNewsRecycler = findViewById(R.id.localNewsRecycler)
-        localNews.visibility = View.GONE
-        localMapResultsScreen = findViewById(R.id.maps_titleMapResultsScreen)
-        this.title = "SecuFoam"
-
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -46,161 +36,57 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
-        // Load saved coordinates
-        val sharedPrefs: SharedPreferences =
-            getSharedPreferences("SecuFoam", Context.MODE_PRIVATE)
-        var latitude = sharedPrefs.getString("SAVED_LATITUDE", "0.0")!!.toDouble()
-        var longitude = sharedPrefs.getString("SAVED_LONGITUDE", "0.0")!!.toDouble()
-        var loadCoordinates = LatLng(latitude, longitude)
-
         mMap = googleMap
-        val newsAPIKey = getString(R.string.news_api_key)
-        var news: List<News> = listOf()
 
-        doAsync {
-            val geocode = Geocoder(this@MapsActivity)
-            //Get the default address
-            val results: List<Address> = try {
-                geocode.getFromLocation(
-                    loadCoordinates.latitude,
-                    loadCoordinates.longitude,
-                    10
-                )
-            } catch (exception: Exception) {
-                listOf()
-            }
-            // Cannot find address
-            if (results == null || results == emptyList<Address>()) {
-                localMapResultsScreen.text = "Cannot Load Current Address"
-            } else {
-                localMapResultsScreen.text = "Results for ${results.first().adminArea}"
-                val temp = NewsManager()
-                news = temp.fetchMapNews(newsAPIKey, results)
-            }
-            val newsAdapter = NewsAdapter(news)
-            runOnUiThread {
-                sharedPrefs.edit().putString("SAVED_LATITUDE", loadCoordinates.latitude.toString())
-                    .apply()
-                sharedPrefs.edit()
-                    .putString("SAVED_LONGITUDE", loadCoordinates.longitude.toString())
-                    .apply()
+        // Define the coordinates of George Washington University
+        val gwuLatLng = LatLng(38.899176, -77.047092)
 
-                if (results.size != 0) {
-                    mMap.addMarker(
-                        MarkerOptions().position(loadCoordinates).title(results.first().adminArea)
-                    )
-                }
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(loadCoordinates))
-                localNews.visibility = View.VISIBLE
-                localNewsRecycler.adapter = newsAdapter
-                localNewsRecycler.layoutManager = LinearLayoutManager(
-                    this@MapsActivity,
-                    LinearLayoutManager.HORIZONTAL,
-                    false
-                )
+        // Add a marker for George Washington University
+        mMap.addMarker(MarkerOptions().position(gwuLatLng).title("George Washington University").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+
+
+        // Zoom the camera to George Washington University
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(gwuLatLng, 15f))
+
+        // Define the colors
+        val GREEN = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)
+        val YELLOW = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
+        val RED = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
+
+        // Add markers with random coordinates and colors
+        val random = Random()
+        val boundsBuilder = LatLngBounds.Builder()
+        for (i in 0 until 10) {
+            val lat = 38.898 + random.nextDouble() * 0.005
+            val lng = -77.049 + random.nextDouble() * 0.005
+            val color = when (random.nextInt(3)) {
+                0 -> GREEN
+                1 -> YELLOW
+                else -> RED
             }
-        }
-        mMap.setOnMapLongClickListener { coord: LatLng ->
-            mMap.clear()
-            doAsync {
-                val geocode = Geocoder(this@MapsActivity)
-                sharedPrefs.edit().putString("SAVED_LATITUDE", coord.latitude.toString()).apply()
-                sharedPrefs.edit().putString("SAVED_LONGITUDE", coord.longitude.toString()).apply()
-                //Get the address of the pressed location
-                val results: List<Address> = try {
-                    geocode.getFromLocation(
-                        coord.latitude,
-                        coord.longitude,
-                        5
-                    )
-                } catch (exception: Exception) {
-                    Log.e("MapsActivity", "Geocoder failed:", exception)
-                    listOf()
-                }
-                if (results == null || results == emptyList<Address>()) {
-                    localMapResultsScreen.text = "Cannot Load Current Address"
-                } else {
-                    val temp = NewsManager()
-                    news = temp.fetchMapNews(newsAPIKey, results)
-                }
-                val newsAdapter = NewsAdapter(news)
-                when {
-                    results.first().countryName == "United States" && results.first().adminArea != null && (news != null || news != emptyList<News>()) -> {
-                        localMapResultsScreen.text = "Results for ${results.first().adminArea}"
-                        runOnUiThread {
-                            mMap.addMarker(
-                                MarkerOptions().position(coord).title(results[0].adminArea)
-                            )
-                            mMap.animateCamera(CameraUpdateFactory.newLatLng(coord))
-                            localNews.visibility = View.VISIBLE
-                            localNewsRecycler.adapter = newsAdapter
-                            localNewsRecycler.layoutManager = LinearLayoutManager(
-                                this@MapsActivity,
-                                LinearLayoutManager.HORIZONTAL,
-                                false
-                            )
-                        }
-                    }
-                    results.first().countryName != null && (news != null || news != emptyList<News>()) -> {
-                        localMapResultsScreen.text =
-                            "Results for ${results.first().countryName}"
-                        runOnUiThread {
-                            mMap.addMarker(
-                                MarkerOptions().position(coord).title(results[0].adminArea)
-                            )
-                            mMap.animateCamera(CameraUpdateFactory.newLatLng(coord))
-                            localNews.visibility = View.VISIBLE
-                            localNewsRecycler.adapter = newsAdapter
-                            localNewsRecycler.layoutManager = LinearLayoutManager(
-                                this@MapsActivity,
-                                LinearLayoutManager.HORIZONTAL,
-                                false
-                            )
-                        }
-                    }
-                    results.first().countryName == null -> {
-                        localMapResultsScreen.text =
-                            "No results for Ocean"
-                        runOnUiThread {
-                            mMap.addMarker(
-                                MarkerOptions().position(coord).title(results[0].adminArea)
-                            )
-                            mMap.animateCamera(CameraUpdateFactory.newLatLng(coord))
-                            Log.e("MapsActivity", "Results response received generating news")
-                            localNews.visibility = View.VISIBLE
-                            localNewsRecycler.adapter = newsAdapter
-                            localNewsRecycler.layoutManager = LinearLayoutManager(
-                                this@MapsActivity,
-                                LinearLayoutManager.HORIZONTAL,
-                                false
-                            )
-                        }
-                    }
-                    else -> {
-                        localMapResultsScreen.text =
-                            "No results for Ocean"
-                        runOnUiThread {
-                            mMap.addMarker(
-                                MarkerOptions().position(coord).title(results[0].adminArea)
-                            )
-                            mMap.animateCamera(CameraUpdateFactory.newLatLng(coord))
-                            localNews.visibility = View.VISIBLE
-                            localNewsRecycler.adapter = newsAdapter
-                            localNewsRecycler.layoutManager = LinearLayoutManager(
-                                this@MapsActivity,
-                                LinearLayoutManager.HORIZONTAL,
-                                false
-                            )
-                        }
-                    }
-                }
+            val percentage = random.nextInt(31) + when (color) {
+                GREEN -> 70
+                YELLOW -> 30
+                else -> 0
             }
+            val title = when (color) {
+                GREEN -> "Dispenser $i is full ($percentage%)"
+                YELLOW -> "Warning: Dispenser $i ($percentage%)"
+                else -> "Dispenser $i is empty ($percentage%)"
+            }
+            mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).icon(color).title(title))
+            val latLng = LatLng(lat, lng)
+            boundsBuilder.include(latLng)
         }
+        // Build the bounds of all the markers
+        val bounds = boundsBuilder.build()
+
+        // Set a padding to offset the camera from the edge of the screen
+        val padding = resources.getDimensionPixelSize(R.dimen.map_padding)
+
+        // Animate the camera to show all the markers
+        val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+        mMap.animateCamera(cameraUpdate)
     }
 }

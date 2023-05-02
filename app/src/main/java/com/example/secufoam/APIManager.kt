@@ -140,7 +140,7 @@ class APIManager : AppCompatActivity(){
             val humidity: String = jsonDispenser1.getString("humidity")
             val totalActivation: String = jsonDispenser1.getString("cloud_pct")
 
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 1"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 1", humidity, totalActivation))
         }
         if ((responseDispenser2.isSuccessful && !responseBodyDispenser2.isNullOrEmpty())) {
             val jsonDispenser2: JSONObject = JSONObject(responseBodyDispenser2)
@@ -148,7 +148,7 @@ class APIManager : AppCompatActivity(){
             val humidity: String = jsonDispenser2.getString("humidity")
             val totalActivation: String = jsonDispenser2.getString("cloud_pct")
 
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 2"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 2", humidity, totalActivation))
         }
         if ((responseDispenser3.isSuccessful && !responseBodyDispenser3.isNullOrEmpty())) {
             val jsonDispenser3: JSONObject = JSONObject(responseBodyDispenser3)
@@ -156,7 +156,7 @@ class APIManager : AppCompatActivity(){
             val humidity: String = jsonDispenser3.getString("humidity")
             val totalActivation: String = jsonDispenser3.getString("cloud_pct")
 
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 3"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 3", humidity, totalActivation))
         }
         if ((responseDispenser4.isSuccessful && !responseBodyDispenser4.isNullOrEmpty())) {
             val jsonDispenser4: JSONObject = JSONObject(responseBodyDispenser4)
@@ -164,7 +164,7 @@ class APIManager : AppCompatActivity(){
             val humidity: String = jsonDispenser4.getString("humidity")
             val totalActivation: String = jsonDispenser4.getString("cloud_pct")
 
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 4"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 4", humidity, totalActivation))
         }
         if ((responseDispenser5.isSuccessful && !responseBodyDispenser5.isNullOrEmpty())) {
             val jsonDispenser4: JSONObject = JSONObject(responseBodyDispenser5)
@@ -172,7 +172,7 @@ class APIManager : AppCompatActivity(){
             val humidity: String = jsonDispenser4.getString("humidity")
             val totalActivation: String = jsonDispenser4.getString("cloud_pct")
 
-            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 5"))
+            listOfCompetitions.add(Institutions(categoryQuery, "Total Activations: $totalActivation", "Average Temperature: $humidity", "Dispenser: 5", humidity, totalActivation))
         }
         else{
             return emptyList()
