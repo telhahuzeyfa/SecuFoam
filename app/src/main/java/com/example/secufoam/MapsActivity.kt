@@ -37,7 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         localNewsRecycler = findViewById(R.id.localNewsRecycler)
         localNews.visibility = View.GONE
         localMapResultsScreen = findViewById(R.id.maps_titleMapResultsScreen)
-        this.title = "SecuFoam - Covid Stat"
+        this.title = "SecuFoam"
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -54,7 +54,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         // Load saved coordinates
         val sharedPrefs: SharedPreferences =
-            getSharedPreferences("FootbalLab", Context.MODE_PRIVATE)
+            getSharedPreferences("SecuFoam", Context.MODE_PRIVATE)
         var latitude = sharedPrefs.getString("SAVED_LATITUDE", "0.0")!!.toDouble()
         var longitude = sharedPrefs.getString("SAVED_LONGITUDE", "0.0")!!.toDouble()
         var loadCoordinates = LatLng(latitude, longitude)

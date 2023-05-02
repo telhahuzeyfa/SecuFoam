@@ -25,7 +25,7 @@
     <string name="activation" translatable="false">Activation</string>
     <string name="searchHint">Search</string>
     <string name="searchHome">Search</string>
-    <string name="newsByLocationHome">COVID-19 News By Location</string>
+    <string name="newsByLocationHome">Track By Location</string>
     <string name="viewMapButtonHome">View Map</string>
     <string name="standings">Standings</string>
     <string name="averageTemperature" translatable="false">Average Temperature</string>
