@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity(){
 
         //Go to the map page
         viewMapButton.setOnClickListener { view: View ->
-            Toast.makeText( getBaseContext(), "Long Press on the map",Toast.LENGTH_SHORT).show();
+            Toast.makeText( getBaseContext(), "Track the status of each SecuFoam dispensers",Toast.LENGTH_SHORT).show();
             val intent: Intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
         }

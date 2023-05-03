@@ -18,9 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.*
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -46,15 +44,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-        mChart = findViewById(R.id.markerChart)
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-// Define the center point of the two circles
+        // Define the center point of the two circles
         val center = LatLng(38.8985 + 0.002, -77.0465)
 
 // Define the radius and number of points for the circles
@@ -95,6 +90,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val YELLOW = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
         val RED = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
 
+
         // Add markers with random coordinates and colors
         val random = Random()
         val boundsBuilder = LatLngBounds.Builder()
@@ -111,15 +107,32 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 YELLOW -> 30
                 else -> 0
             }
-            val title = when (color) {
+            val dispenserTitle = when (color) {
                 GREEN -> "Dispenser $i is full ($percentage%)"
                 YELLOW -> "Warning: Dispenser $i ($percentage%)"
                 else -> "Dispenser $i is empty ($percentage%)"
             }
+
+            // Generate random temperatures for the marker
+            val temp = when (random.nextInt(3)) {
+                0 -> 97.5 + random.nextDouble() * (98.9 - 97.5)
+                1 -> 97.5 + random.nextDouble() * (98.9 - 97.5)
+                else -> 100.4 + random.nextDouble() * (105.0 - 100.4)
+            }
+
+            // Assign titles based on temperature ranges
+            val tempTitle = when (temp) {
+                in 97.5..98.9 -> "Avg. Temp.: (${"%.4f".format(temp)}°F)"
+                in 98.9..100.4 -> "Avg. Temp.: (${"%.4f".format(temp)}°F)"
+                else -> "Avg. Temp.: (${"%.4f".format(temp)}°F)"
+            }
+            val title = "$dispenserTitle / $tempTitle"
+
             mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).icon(color).title(title))
             val latLng = LatLng(lat, lng)
             boundsBuilder.include(latLng)
         }
+
         // Add circles with random coordinates, colors, and radii
         for (i in 0 until 5) {
             val lat = 38.898 + random.nextDouble() * 0.005
@@ -150,30 +163,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Animate the camera to show all the markers
         val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
         mMap.animateCamera(cameraUpdate)
-
-        mMap.setOnMarkerClickListener { marker ->
-            // Retrieve the percentage value from the marker title
-            val percentageStr = marker.title?.split(" ")?.last()?.removeSuffix("%")
-            val percentage = percentageStr?.toIntOrNull() ?: return@setOnMarkerClickListener false
-
-            // Create and configure the bar chart data and style
-            val chartData = BarData(
-                BarDataSet(listOf(BarEntry(percentage.toFloat(), 0f)), "")
-            )
-            mChart.data = chartData
-            mChart.setDrawValueAboveBar(false)
-            mChart.description.isEnabled = false
-            mChart.legend.isEnabled = false
-            mChart.xAxis.isEnabled = false
-            mChart.axisLeft.isEnabled = false
-            mChart.axisRight.isEnabled = false
-            mChart.setDrawBorders(false)
-            mChart.setDrawGridBackground(false)
-
-            // Show the bar chart
-            mChart.visibility = View.VISIBLE
-
-            true
-        }
     }
 }
