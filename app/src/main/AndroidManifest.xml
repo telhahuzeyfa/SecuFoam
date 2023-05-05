@@ -26,23 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.secufoam.CountryStatistics">
-        </activity>
         <activity android:name="com.example.secufoam.MainActivity">
         </activity>
         <activity android:name="com.example.secufoam.MapsActivity">
-        </activity>
-        <activity android:name="com.example.secufoam.UpcomingFixtures">
-        </activity>
-        <activity android:name="com.example.secufoam.TopHeadlineScreen">
         </activity>
         <activity android:name="com.example.secufoam.DispenserStat">
         </activity>
         <activity android:name="com.example.secufoam.SelectInstitution">
         </activity>
-<!--        <activity android:name=".MapsActivity">-->
-<!--        </activity>-->
-
     </application>
 
 </manifest>

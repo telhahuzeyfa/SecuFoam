@@ -18,7 +18,7 @@ class HallsAdapter(private val institutions: List<Institutions>):
         val institutionCard: CardView = itemView.findViewById(R.id.institutionCard)
         val institutionTitleSource: TextView = itemView.findViewById(R.id.institutionTitleSource)
         val institutionContents: TextView = itemView.findViewById(R.id.institutionContents)
-        val averageTemp: TextView = itemView.findViewById(R.id.averageTemp)
+//        val averageTemp: TextView = itemView.findViewById(R.id.averageTemp)
         val totalNumOfDispensers: TextView = itemView.findViewById(R.id.totalNumOfDispensers)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +36,7 @@ class HallsAdapter(private val institutions: List<Institutions>):
 //        holder.institutionThumbnail.imageView = currentSelectedInstitution.institutionThumbnail
         holder.institutionTitleSource.text = currentSelectedInstitution.institutionTitleSource
         holder.institutionContents.text = currentSelectedInstitution.institutionContents
-        holder.averageTemp.text = currentSelectedInstitution.averageTemp
+//        holder.averageTemp.text = currentSelectedInstitution.averageTemp
         holder.totalNumOfDispensers.text = currentSelectedInstitution.numOfDispensers
         holder.institutionCard.setOnClickListener {
             val intent = Intent(holder.itemView.context, DispenserStat::class.java)

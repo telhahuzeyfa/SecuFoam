@@ -52,17 +52,17 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:text="Total Activations" />
 
-            <TextView
-                android:id="@+id/averageTemp"
-                android:layout_width="176dp"
-                android:layout_height="26dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.385"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/totalNumOfDispensers"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="averageTemp: " />
+<!--            <TextView-->
+<!--                android:id="@+id/averageTemp"-->
+<!--                android:layout_width="176dp"-->
+<!--                android:layout_height="26dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.385"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/totalNumOfDispensers"-->
+<!--                app:layout_constraintVertical_bias="0.0"-->
+<!--                tools:text="averageTemp: " />-->
 
             <TextView
                 android:id="@+id/totalNumOfDispensers"

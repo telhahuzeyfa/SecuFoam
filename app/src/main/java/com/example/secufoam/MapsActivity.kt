@@ -128,7 +128,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             val title = "$dispenserTitle / $tempTitle"
 
-            mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).icon(color).title(title))
+            val marker = mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).icon(color).title(title))
             val latLng = LatLng(lat, lng)
             boundsBuilder.include(latLng)
         }

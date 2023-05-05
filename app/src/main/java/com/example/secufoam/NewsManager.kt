@@ -60,41 +60,4 @@ class NewsManager {
         }
         return newsList
     }
-    //Get top headlines
-    fun fetchHeadlinesNews(newsAPI_Key: String, queryCategory: String): List<TopHeadline> {
-        val newsList = mutableListOf<TopHeadline>()
-        //build the request
-        var request: Request = Request.Builder()
-            .url("https://livescore6.p.rapidapi.com/news/v2/list")
-            .get()
-            .addHeader("X-RapidAPI-Host", "livescore6.p.rapidapi.com")
-            .addHeader("X-RapidAPI-Key", "bda3cee26dmsh185df17cf98c229p1481ddjsn7cbadc8d4afe")
-            .build()
-
-        //Calling the request
-        val response = okHttpClient.newCall(request).execute()
-
-        //Get the json body
-        val responseString = response.body?.string()
-
-        //check response is not empty or null
-        if (response.isSuccessful && !responseString.isNullOrEmpty()) {
-            //parse json string
-            val json = JSONObject(responseString)
-
-            val articles = json.getJSONArray("topStories")
-            //parse as News Object to headlines
-            for (i in 0 until articles.length()) {
-                var currNews = articles.getJSONObject(i)
-                val title = currNews.getString("title")
-//                val source = currNews.getJSONObject("source").getString("name")
-                val publishedAt = currNews.getString("publishedAt")
-                val url = currNews.getString("url")
-                val content = currNews.getString("subTitle")
-                val picTemp = currNews.getString("related")
-                newsList.add(TopHeadline(title, publishedAt, url, content, picTemp))
-            }
-        }
-        return newsList
-    }
 }
